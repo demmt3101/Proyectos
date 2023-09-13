@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Integrantes del Evento</title>
+    <style>
+      /* Estilos generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      
+      header {
+        background-color: #0d79ca;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      .top-right-button-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      
+      .btn-container {
+        text-align: right;
+        margin-bottom: 20px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      .profile-picture {
+        max-width: 200px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: block;
+      }
+      
+      .username {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .email {
+        color: #888;
+        margin-bottom: 20px;
+      }
+      
+      .description {
+        margin-bottom: 20px;
+      }
+      
+      .event-item {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+      }
+      
+      .event-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      
+      .event-date {
+        color: #888;
+        margin-bottom: 10px;
+      }
+      
+      .select-button {
+        background-color: #333;
+        color: #fff;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      .select-button:hover {
+        background-color: #555;
+      }
+      
+      .event-description {
+        margin-bottom: 10px;
+      }
+      
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Aquí puedes colocar el encabezado de tu página -->
+      <h1>Lista de Integrantes del Evento</h1>
+    </header>
+
+    <h2>Detalles del Evento</h2>
+    <div class="top-right-button-container">
+      <nav>
+        <ul>
+          <li>
+            <a href="/crear_evento/">Crear Evento</a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li>
+            <a href="/index_admin/">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <p>
+      <strong>Nombre del Evento:</strong> [Nombre del Evento]
+    </p>
+    <p>
+      <strong>Fecha:</strong> [Fecha del Evento]
+    </p>
+    <p>
+      <strong>Lugar:</strong> [Lugar del Evento]
+    </p>
+
+    <h2>Lista de Integrantes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Evento</th>
+          <th>Contacto</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[Nombre del Miembro]</td>
+          <td>[Apellido]</td>
+          <td>[Evento]</td>
+          <td>[Correo/Teléfono]</td>
+          <td>
+            <button class="select-button">Seleccionar</button>
+          </td>
+        </tr>
+        <!-- Agrega más filas según sea necesario -->
+      </tbody>
+    </table>
+
+    <h2>Descripción del Evento</h2>
+    <p>[Descripción breve del evento y su propósito.]</p>
+
+    <h2>Agenda del Evento</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Actividad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[HH:MM]</td>
+          <td>[Descripción de la actividad]</td>
+        </tr>
+        <!-- Agrega más filas de la agenda según sea necesario -->
+      </tbody>
+    </table>
+
+    <h2>Enviar Archivo PDF</h2>
+    <form action="/admin_participantes/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div>
+        <label for="pdfFile">Subir archivo PDF:</label>
+        <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" />
+      </div>
+      <div>
+        <button type="submit">Enviar PDF</button>
+      </div>
+    </form>
+  </body>
+</html>

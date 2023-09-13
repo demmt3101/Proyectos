@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recuperación de Contraseña</title>
+    <style>
+      /* Estilos generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      
+      header {
+        background-color: #0d79ca;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      main {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 40px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      input[type='email'] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #555;
+      }
+      
+      /* Estilo para el mensaje de confirmación */
+      .confirm-message {
+        display: none;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+      
+      /* Estilo para el mensaje de error */
+      .error-message {
+        display: none;
+        background-color: #ff5733;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Aquí puedes colocar el encabezado de tu página -->
+      <h1>Recuperación de Contraseña</h1>
+    </header>
+
+    <main>
+      <!-- Formulario de recuperación de contraseña -->
+      <form action="/recuperar_contraseña/" method="POST">
+        {% csrf_token %}
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+        <button type="button" onclick="enviarCorreoRecuperacion()">Recuperar Contraseña</button>
+      </form>
+
+      <!-- Mensaje de confirmación -->
+      <div class="confirm-message" id="confirmMessage">En un lapso de 3 minutos recibirás un código a tu correo electrónico registrado</div>
+
+      <!-- Mensaje de error -->
+      <div class="error-message" id="errorMessage">Los espacios en blanco no pueden ir en blanco.</div>
+    </main>
+
+    <script>
+      // Función para mostrar el mensaje de confirmación
+      function mostrarMensajeConfirmacion() {
+        var confirmMessage = document.getElementById('confirmMessage')
+        confirmMessage.style.display = 'block'
+      }
+      
+      // Función para ocultar el mensaje de error
+      function ocultarMensajeError() {
+        var errorMessage = document.getElementById('errorMessage')
+        errorMessage.style.display = 'none'
+      }
+      
+      // Función para mostrar el mensaje de error
+      function mostrarMensajeError() {
+        var errorMessage = document.getElementById('errorMessage')
+        errorMessage.style.display = 'block'
+      }
+      
+      // Función para simular el envío de correo de recuperación
+      function enviarCorreoRecuperacion() {
+        var emailInput = document.getElementById('email')
+        var email = emailInput.value.trim() // Obtener el valor del campo y eliminar espacios en blanco al principio y al final
+        if (email === '') {
+          mostrarMensajeError()
+        } else {
+          ocultarMensajeError() // Ocultar el mensaje de error si el campo no está en blanco
+          mostrarMensajeConfirmacion()
+        }
+      }
+    </script>
+  </body>
+</html>

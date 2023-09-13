@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CERTIPUCE</title>
+    <style>
+      /* Estilos generales */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      
+      header {
+        background-color: #0d79ca;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+      
+      nav ul li {
+        margin: 0 10px;
+      }
+      
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      main {
+        padding: 20px;
+      }
+      
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+      }
+      
+      /* Estilos para el formulario de inicio de sesión */
+      form {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      button {
+        background-color: #0d79ca;
+        color: #fff;
+        padding: 10px 110px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #095c9d;
+      }
+      
+      /* Estilo para la imagen de la parte superior derecha */
+      .top-right-image {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Aquí puedes colocar el encabezado de tu página -->
+      <h1>CERTIPUCE</h1>
+      <p>Obtén tu certificado al instante, a un clic de distancia</p>
+    </header>
+
+    <h2>Iniciar sesión</h2>
+    <form action="/index/" method="POST">
+      {% csrf_token %}
+      <button>Iniciar sesión</button>
+    </form>
+    <img src="ruta_de_la_imagen.jpg" alt="Imagen de ejemplo" class="top-right-image" />
+  </body>
+</html>
