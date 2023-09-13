@@ -1,0 +1,10 @@
+insert
+select
+delete
+pyqt5
+modelos
+vistas
+
+1 2 4 
+gui
+interacion de base de datos

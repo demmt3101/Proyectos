@@ -1,0 +1,7 @@
+.\proyecto\Scripts\activate
+
+.\proyecto\Scripts\deactivate
+
+python manage.py runserver
+
+python manage.py createsuperuser
